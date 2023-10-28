@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
         //This makes the ball roll
         float forwardInput = Input.GetAxis("Vertical");
         float magnitude = forwardInput * speed * Time.deltaTime;
-        rbPlayer.AddForce(focalPoint.transform.forward * magnitude, ForceMode.Impulse);
+        rbPlayer.AddForce(focalPoint.transform.forward * magnitude, ForceMode.Force);
         
         //This causes the color of the ball to change
         if(forwardInput > 0)
