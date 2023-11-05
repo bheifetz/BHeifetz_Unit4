@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     Rigidbody rbEnemy;
     GameObject player;
     public float speed = 5f;
+    public float yBoundary = -15f;
 
     void Start()
     {
@@ -18,5 +19,7 @@ public class Enemy : MonoBehaviour
     {
         Vector3 seekDirection = (player.transform.position - transform.position).normalized;
         rbEnemy.AddForce(seekDirection * speed * Time.deltaTime);
+        if (transform.position.y < yBoundary)
+            Destroy(gameObject);
     }
 }
